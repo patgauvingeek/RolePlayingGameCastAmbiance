@@ -11,10 +11,6 @@ angular.module('rolePlayingGameCastAmbianceApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
     var ctrl = this;
 
-    $scope.media = [
-
-    ];
-
     $scope.campaigns = {
       openlegend : {
         name : 'Open Legend',
