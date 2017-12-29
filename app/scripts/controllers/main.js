@@ -26,6 +26,22 @@ angular.module('rolePlayingGameCastAmbianceApp')
           'media/openlegend/Countdown.mp3'
         ]
       },
+      maelstrom : {
+        name: "S.S. Maëlstrom",
+        images : [
+          'media/maelstrom/capitaine.jpg',
+          'media/maelstrom/FATE.png',
+          'media/maelstrom/fatesheet.jpg',
+          'media/maelstrom/quazar.jpg',
+          'media/maelstrom/radioactive.png',
+          'media/maelstrom/station_spacial.jpg',
+          'media/maelstrom/station_spacial.png',
+          'media/maelstrom/Steampunk-17.jpg'
+        ],
+        audios : [
+          'media/maelstrom/geigercounter.mp3'
+        ]
+      },
       tochi : {
         name : 'Tochi',
         images : [
