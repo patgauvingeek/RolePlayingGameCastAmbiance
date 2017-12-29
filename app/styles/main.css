@@ -4,11 +4,6 @@
   object-fit: contain;
 }
 
-.audio-thumbnail {
-  width: 150px;
-  height: 150px;
-}
-
 .right-tool-bar {
   position: fixed;
   right: 5px;
@@ -19,12 +14,23 @@
 .gi-4x{font-size: 4em;}
 .gi-5x{font-size: 5em;}
 
+.square {
+  display: block;
+  float: left;
+  border-style: solid;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0px
+}
+
 .casted-content {
   position: absolute;
   width: 100%;
   height: 100%;
   margin: auto;
-  background: #000;
+  background: black;
 }
 
 .casted-image {
@@ -43,18 +49,26 @@
   transform: translate(-50%, -50%);
 }
 
+.black {
+  background: black;
+}
+
+.white {
+  background: white;
+}
+
 .sample-casted {
   margin-top: 10px;
 }
 
 .sample-casted-content {
   width: 100%;
-  background: #000;
+  height: 15vw;
 }
 
 .sample-casted-image {
   width: 100%;
-  height: 200px;
+  height: 15vw;
   object-fit: contain;
 }
 

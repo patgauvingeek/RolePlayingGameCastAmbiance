@@ -11,34 +11,43 @@ angular.module('rolePlayingGameCastAmbianceApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
     var ctrl = this;
 
+    $scope.media = [
+
+    ];
+
     $scope.campaigns = {
       openlegend : {
         name : 'Open Legend',
-        images : ['openlegend/logo.png'],
-        audios : ['openlegend/thunder.mp3']
+        images : [
+          'media/openlegend/logo.png'
+        ],
+        audios : [
+          'media/openlegend/thunder.mp3',
+          'media/openlegend/Countdown.mp3'
+        ]
       },
       tochi : {
         name : 'Tochi',
         images : [
-          'tochi/abyssal_evicerator.jpg',
-          'tochi/abyssal_rotfiend.jpg',
-          'tochi/abyssals.jpg',
-          'tochi/BlackReaverZombie.jpg',
-          'tochi/Carrion_crawler.jpg',
-          'tochi/ClarkMerton.png',
-          'tochi/ClarkMertonEvent.png',
-          'tochi/dnd_big.jpg',
-          'tochi/Lasher Zombie.png',
-          'tochi/mirror.jpg',
-          'tochi/montagne.jpg',
-          'tochi/PitOfSoldier.jpg',
-          'tochi/ShichiGatsu1049.jpg',
-          'tochi/swearing.png',
-          'tochi/Tadiosa.jpg',
-          'tochi/tattoo.jpg',
-          'tochi/throne.jpg',
-          'tochi/WitheringOnes.jpg',
-          'tochi/Zazix.jpg',
+          'media/tochi/abyssal_evicerator.jpg',
+          'media/tochi/abyssal_rotfiend.jpg',
+          'media/tochi/abyssals.jpg',
+          'media/tochi/BlackReaverZombie.jpg',
+          'media/tochi/Carrion_crawler.jpg',
+          'media/tochi/ClarkMerton.png',
+          'media/tochi/ClarkMertonEvent.png',
+          'media/tochi/dnd_big.jpg',
+          'media/tochi/Lasher Zombie.png',
+          'media/tochi/mirror.jpg',
+          'media/tochi/montagne.jpg',
+          'media/tochi/PitOfSoldier.jpg',
+          'media/tochi/ShichiGatsu1049.jpg',
+          'media/tochi/swearing.png',
+          'media/tochi/Tadiosa.jpg',
+          'media/tochi/tattoo.jpg',
+          'media/tochi/throne.jpg',
+          'media/tochi/WitheringOnes.jpg',
+          'media/tochi/Zazix.jpg',
         ],
         audios : []
       }
@@ -50,6 +59,9 @@ angular.module('rolePlayingGameCastAmbianceApp')
       {
         return;
       }
+      var casted_content = ctrl.casted_window.document.getElementById('casted-content');
+      casted_content.style.background = $scope.background;
+
       var casted_image = ctrl.casted_window.document.getElementById('casted-image')
       if ($scope.selected_image == '')
       {
@@ -71,6 +83,12 @@ angular.module('rolePlayingGameCastAmbianceApp')
       casted_audio.play();
     }
 
+    $scope.get_filename = function(file)
+    {
+      var wIndex = file.lastIndexOf('/');
+      return file.substring(wIndex + 1);
+    }
+
     $scope.clear_cast = function()
     {
       $scope.background = 'black';
@@ -78,7 +96,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
       $scope.message = '';
       $scope.selected_image = '';
       $scope.selected_audio = '';
-      $scope.selected_volume = 0.1;
+      $scope.selected_volume = 0.02;
       $scope.showTime = false;
       ctrl.update_cast_window();
     }

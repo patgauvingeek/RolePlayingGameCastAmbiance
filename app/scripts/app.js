@@ -10,6 +10,7 @@
  */
 angular
   .module('rolePlayingGameCastAmbianceApp', [
+    'ngMaterial',
     'ngAnimate',
     'ngCookies',
     'ngResource',
