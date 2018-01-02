@@ -122,7 +122,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
       $scope.selected_image = '';
       $scope.selected_audio = '';
       $scope.selected_volume = 0.1;
-      $scope.show_time = true;
+      $scope.show_time = false;
       ctrl.update_cast_window();
     }
     
