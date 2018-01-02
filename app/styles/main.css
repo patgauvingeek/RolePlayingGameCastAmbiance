@@ -78,6 +78,6 @@
   color: white;
   font-size: 1vw;
   transform: translate(-50%, -50%);
-  position: relative;
+  position: absolute;
   width: fit-content;
 }
