@@ -82,6 +82,16 @@ angular.module('rolePlayingGameCastAmbianceApp')
       ctrl.casted_window.document.getElementById('casted-time').innerHTML=$scope.time;
     }
 
+    ctrl.update_volume = function()
+    {
+      if (ctrl.casted_window == undefined)
+      {
+        return;
+      }
+      var casted_audio = ctrl.casted_window.document.getElementById('casted-audio');
+      casted_audio.volume = $scope.selected_volume;
+    }
+
     ctrl.update_cast_window = function()
     {
       if (ctrl.casted_window == undefined)
@@ -169,6 +179,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
 
     $scope.clear_cast();
     ctrl.update_time();
+    $scope.$watch('selected_volume', ctrl.update_volume);
     $interval(ctrl.update_time, 1000);
 
   }]);
