@@ -44,8 +44,9 @@
         <div class="row">
           <div class="col-lg-12 sample-casted">
             <div class="sample-casted-content" ng-class="background">
-              <img ng-if="selected_image != ''" class="sample-casted-image" ng-src="{{selected_image}}">
+              <img class="sample-casted-image" ng-if="selected_image != ''" ng-src="{{selected_image}}">
               <div class="sample-casted-message">{{message}}</div>
+              <div ng-if="show_time" class="sample-casted-time">{{time}}</div>
             </div>
           </div>
         </div>
@@ -70,10 +71,13 @@
           </div>        
           <div class="col-lg-3">
             <md-slider-container>
-              <md-slider flex="" min="0" max="0.30" step="0.02" ng-model="selected_volume"></md-slider>
+              <md-slider flex="" min="0" max="1.00" step="0.1" ng-model="selected_volume" aria-label="volume"></md-slider>
             </md-slider-container>
           </div>
           <div class="col-lg-1"><p class="text-center align-middle" style="margin-top: 14px;">{{selected_volume}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6"><input type="checkbox" name="vehicle" ng-model="show_time" value="Bike">Show Time</div>
         </div>
       </div>
     </div>

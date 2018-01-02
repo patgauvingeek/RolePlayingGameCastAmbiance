@@ -49,6 +49,15 @@
   transform: translate(-50%, -50%);
 }
 
+.casted-time {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  color:white;
+  font-size: 5vw;
+  transform: translate(-50%, -50%);
+}
+
 .black {
   background: black;
 }
@@ -74,6 +83,16 @@
 
 .sample-casted-message {
   top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 1vw;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: fit-content;
+}
+
+.sample-casted-time {
+  top: 90%;
   left: 50%;
   color: white;
   font-size: 1vw;

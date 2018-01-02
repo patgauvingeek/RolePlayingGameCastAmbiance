@@ -1,5 +1,11 @@
 'use strict';
 
+Number.prototype.pad = function(size) {
+  var s = String(this);
+  while (s.length < (size || 2)) {s = "0" + s;}
+  return s;
+}
+
 /**
  * @ngdoc function
  * @name rolePlayingGameCastAmbianceApp.controller:MainCtrl
@@ -8,7 +14,7 @@
  * Controller of the rolePlayingGameCastAmbianceApp
  */
 angular.module('rolePlayingGameCastAmbianceApp')
-  .controller('MainCtrl', ['$scope', function ($scope) {
+  .controller('MainCtrl', ['$scope', '$interval', function ($scope, $interval) {
     var ctrl = this;
 
     $scope.campaigns = {
@@ -65,6 +71,24 @@ angular.module('rolePlayingGameCastAmbianceApp')
       }
     };
     
+    ctrl.update_time = function()
+    {
+      var now = new Date();
+      $scope.time = now.getHours() + ':' + now.getMinutes().pad() + ':' + now.getSeconds().pad();
+      if (ctrl.casted_window == undefined)
+      {
+        return;
+      }
+      if ($scope.show_time)
+      {
+        ctrl.casted_window.document.getElementById('casted-time').innerHTML=$scope.time;
+      }
+      else
+      {
+        ctrl.casted_window.document.getElementById('casted-time').innerHTML='';
+      }
+    }
+
     ctrl.update_cast_window = function()
     {
       if (ctrl.casted_window == undefined)
@@ -85,7 +109,8 @@ angular.module('rolePlayingGameCastAmbianceApp')
       }
       casted_image.src = $scope.selected_image;
       ctrl.casted_window.document.getElementById('casted-message').innerHTML=$scope.message;
-      
+      ctrl.update_time();
+
       var casted_audio_source = ctrl.casted_window.document.getElementById('casted-audio-source');
       casted_audio_source.src = $scope.selected_audio;
 
@@ -108,12 +133,11 @@ angular.module('rolePlayingGameCastAmbianceApp')
       $scope.message = '';
       $scope.selected_image = '';
       $scope.selected_audio = '';
-      $scope.selected_volume = 0.02;
-      $scope.showTime = false;
+      $scope.selected_volume = 0.1;
+      $scope.show_time = true;
       ctrl.update_cast_window();
     }
-    $scope.clear_cast();
-
+    
     $scope.select_image = function(image)
     {
       if ($scope.selected_image == image)
@@ -154,4 +178,9 @@ angular.module('rolePlayingGameCastAmbianceApp')
         ctrl.update_cast_window();
       }      
     }
+
+    $scope.clear_cast();
+    ctrl.update_time();
+    $interval(ctrl.update_time, 1000);
+
   }]);
