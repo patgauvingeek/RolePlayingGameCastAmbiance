@@ -79,14 +79,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
       {
         return;
       }
-      if ($scope.show_time)
-      {
-        ctrl.casted_window.document.getElementById('casted-time').innerHTML=$scope.time;
-      }
-      else
-      {
-        ctrl.casted_window.document.getElementById('casted-time').innerHTML='';
-      }
+      ctrl.casted_window.document.getElementById('casted-time').innerHTML=$scope.time;
     }
 
     ctrl.update_cast_window = function()
@@ -97,23 +90,19 @@ angular.module('rolePlayingGameCastAmbianceApp')
       }
       var casted_content = ctrl.casted_window.document.getElementById('casted-content');
       casted_content.style.background = $scope.background;
+      casted_content.style.color = $scope.background == 'white' ? 'black' : 'white';
 
       var casted_image = ctrl.casted_window.document.getElementById('casted-image')
-      if ($scope.selected_image == '')
-      {
-        casted_image.style.display = "none";
-      }
-      else
-      {
-        casted_image.style.display = "block";
-      }
+      casted_image.style.display = $scope.selected_image == '' ? 'none' : 'block';
       casted_image.src = $scope.selected_image;
+
       ctrl.casted_window.document.getElementById('casted-message').innerHTML=$scope.message;
+      
+      ctrl.casted_window.document.getElementById('casted-time').style.display = $scope.show_time ? 'block' : 'none';
       ctrl.update_time();
 
       var casted_audio_source = ctrl.casted_window.document.getElementById('casted-audio-source');
       casted_audio_source.src = $scope.selected_audio;
-
       var casted_audio = ctrl.casted_window.document.getElementById('casted-audio');
       casted_audio.load();
       casted_audio.volume = $scope.selected_volume;
@@ -129,7 +118,6 @@ angular.module('rolePlayingGameCastAmbianceApp')
     $scope.clear_cast = function()
     {
       $scope.background = 'black';
-      $scope.foreground = 'white';
       $scope.message = '';
       $scope.selected_image = '';
       $scope.selected_audio = '';
