@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <input style="margin-top: 5px; width: 100%;" ng-model="selected_audio" type="text" placeholder="Audio URL" class="ng-pristine ng-valid md-input ng-empty ng-touched" aria-invalid="false">
           </div>
           <div class="col-lg-1">
@@ -75,9 +75,10 @@
             </md-slider-container>
           </div>
           <div class="col-lg-1"><p class="text-center align-middle" style="margin-top: 14px;">{{selected_volume}}</p></div>
+          <div class="col-lg-2"><input type="checkbox" ng-model="loop" style="margin-top: 16px;">Loop</div>
         </div>
         <div class="row">
-          <div class="col-lg-6"><input type="checkbox" name="vehicle" ng-model="show_time" value="Bike">Show Time</div>
+          <div class="col-lg-6"><input type="checkbox" ng-model="show_time">Show Time</div>
         </div>
       </div>
     </div>

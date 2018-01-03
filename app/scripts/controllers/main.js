@@ -115,6 +115,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
       casted_audio_source.src = $scope.selected_audio;
       var casted_audio = ctrl.casted_window.document.getElementById('casted-audio');
       casted_audio.load();
+      casted_audio.loop = $scope.loop;
       casted_audio.volume = $scope.selected_volume;
       casted_audio.play();
     }
@@ -132,6 +133,7 @@ angular.module('rolePlayingGameCastAmbianceApp')
       $scope.selected_image = '';
       $scope.selected_audio = '';
       $scope.selected_volume = 0.1;
+      $scope.loop = false;
       $scope.show_time = false;
       ctrl.update_cast_window();
     }
